@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body align="center">
+    <h1>Jspider</h1>
+    <h4>Sir Puttanna Chetty Complex, No. 13 & 14, 1st floor, Bull Temple Rd, Basavanagudi, Bengaluru, Karnataka 560004</h4>
+        <img src="{% static 'image\jspider.jpeg' %}" alt="" width="100px" height="50px" style="margin-left: 75px;">
+    <table border="1" style="width: 100%;margin-top: 40px;" >
+
+        <tr>
+            <th>name</th>
+            <th>degree</th>
+            <th>yop</th>
+            <th>skill</th>
+            <th>percentage</th>
+            <th>mock</th>
+        </tr>
+        {% for data in res %}
+        {% if data.mockRating == '1*' and data.skill == 'java' and data.percentage >= 60 %}
+            <tr style="background-color: green;">
+                
+                <td>{{data.name}}</td>
+                <td>{{data.degree}}</td>
+                <td>{{data.yop}}</td>
+                <td>{{data.skill}}</td>
+                <td>{{data.percentage}}</td>
+                <td>{{data.mockRating}}</td>
+                
+                
+                
+            
+            </tr>
+        {% endif %}
+        {% endfor %}
+</body>
+</html>
